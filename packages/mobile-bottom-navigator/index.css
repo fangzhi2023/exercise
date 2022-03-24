@@ -1,0 +1,124 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+:root {
+    --active-color: #e3e3e3;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--active-color);
+}
+
+.container {
+    width: 400px;
+    height: 50px;
+}
+
+.mobile-bottom-navigator {
+    position: relative;
+}
+.mobile-bottom-navigator ul {
+    width: 400;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.mobile-bottom-navigator ul li {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    flex: 1;
+}
+.mobile-bottom-navigator ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+.mobile-bottom-navigator ul li a .icon {
+    display: block;
+    line-height: 50px;
+    z-index: 1;
+    transition: .5s;
+}
+.mobile-bottom-navigator ul li a .icon i {
+    font-size: 18px;
+}
+.mobile-bottom-navigator ul li a .label {
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transition: .5s;
+}
+.mobile-bottom-navigator ul li.active a .icon {
+    color: #fff;
+    transform: translateY(-28px);
+}
+.mobile-bottom-navigator ul li.active a .label {
+    opacity: 1;
+    transform: translateY(-6px);
+}
+.mobile-bottom-navigator .indicator {
+    position: absolute;
+    top: -26px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 5px solid var(--active-color);
+    background-color: #009688;
+    border-radius: 50%;
+    transition: .5s;
+}
+.mobile-bottom-navigator .indicator:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 21px;
+    left: -14px;
+    background-color: #ffffff;
+    border-top-right-radius: 8px;
+    box-shadow: 3px -3px 0 var(--active-color);
+}
+.mobile-bottom-navigator .indicator:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 21px;
+    left: 44px;
+    background-color: #ffffff;
+    border-top-left-radius: 8px;
+    box-shadow: -3px -3px 0 var(--active-color);
+}
+.mobile-bottom-navigator li:nth-child(1).active ~ .indicator {
+    transform: translateX(15px);
+}
+.mobile-bottom-navigator li:nth-child(2).active ~ .indicator {
+    transform: translateX(95px);
+}
+.mobile-bottom-navigator li:nth-child(3).active ~ .indicator {
+    transform: translateX(175px);
+}
+.mobile-bottom-navigator li:nth-child(4).active ~ .indicator {
+    transform: translateX(255px);
+}
+.mobile-bottom-navigator li:nth-child(5).active ~ .indicator {
+    transform: translateX(335px);
+}
