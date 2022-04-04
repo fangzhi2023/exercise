@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>抽样检查处理方案可视化</title>
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <button onclick="start()" id="start">开始</button>
+                <button onclick="pause()" id="pause">暂停</button>
+                <button onclick="restart()">重新开始</button>
+                <span id="tip"></span>
+            </div>
+            <div class="content">
+                <div id="dashboard"></div>
+                <div id="result"></div>
+            </div>
+            <div>
+                <h3>问题描述</h3>
+                <p>
+                    有1-54个数，从中抽取任意6个数字组成一组，要求 <br />
+                    1，每两组间最多只能有一个数相同，不能出现2个以上相同的数 <br />  
+                    2，组内6个数不重复 <br />
+                    3，抽取54组符合条件的组数
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript" src="./index.js"></script>
+    </body>
+</html>
