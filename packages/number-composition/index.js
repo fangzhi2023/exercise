@@ -77,6 +77,10 @@ function createProcess() {
             showTable();
             await showTip(`选取完毕，共有${results.length}种`, false);
         } else if (line.tip) {
+            if (lastGroup) {
+                activeGroup(lastGroup, false)
+                lastGroup = null;
+            }
             await showTip(line.tip);
         } else {
             await checkGroup(line);
@@ -267,6 +271,7 @@ function warnRows(rowId, nodeIds, active) {
 // show table
 function showTable() {
     const container = document.getElementById("table");
+    container.innerHTML = "";
     const table = document.createElement("table");
     results.forEach(item => {
         const tr = document.createElement("tr")

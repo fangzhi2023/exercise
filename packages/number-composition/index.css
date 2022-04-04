@@ -9,6 +9,7 @@ body {
     --background-color2: #c9c7c7;
 }
 body {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +17,7 @@ body {
 }
 
 .container {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -32,8 +34,8 @@ body {
 
 .container .content {
     display: flex;
-    width: 450px;
-    height: 450px;
+    width: 600px;
+    height: 600px;
     background-color: var(--background-color2);
 }
 
@@ -67,14 +69,17 @@ body {
 }
 
 .container #result {
-    width: 240px;
-    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 560px;
+    margin: 8px;
     background-color: white;
     overflow: auto;
 }
 
 .container #result > div { 
-    margin-bottom: 0px;
+    margin-right: 8px;
 }
 .container #result > div .item {    
     width: 20px;
