@@ -73,7 +73,9 @@ function createProcess() {
         const line = lines[step++];
         if (!line) {
             isStop = true;
-            await showTip("选取完毕");
+            console.log(results)
+            console.log(JSON.stringify(results))
+            await showTip(`选取完毕，共有${results.length}种`, false);
         } else if (line.tip) {
             await showTip(line.tip);
         } else {
