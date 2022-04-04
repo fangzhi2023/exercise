@@ -72,13 +72,13 @@ function createProcess() {
     return async () => {
         const line = lines[step++];
         if (!line) {
+            isStop = true;
             await showTip("选取完毕");
         } else if (line.tip) {
             await showTip(line.tip);
         } else {
             await checkGroup(line);
         }
-        isStop = true;
     }
 }
 
@@ -211,8 +211,8 @@ function layout() {
 }
 async function nodeLayout(item, i, j) {
     const node = nodes[item];
-    node.style.top = `${64 * i}px`
-    node.style.left = `${50 * j}px`
+    node.style.top = `${44 * i}px`
+    node.style.left = `${40 * j}px`
 }
 function getDashboardHandler() {
     const container = document.getElementById("dashboard");
