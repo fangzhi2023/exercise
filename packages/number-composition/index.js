@@ -74,7 +74,7 @@ function createProcess() {
         if (!line) {
             isStop = true;
             console.log(results)
-            console.log(JSON.stringify(results))
+            showTable();
             await showTip(`选取完毕，共有${results.length}种`, false);
         } else if (line.tip) {
             await showTip(line.tip);
@@ -262,4 +262,20 @@ function warnRows(rowId, nodeIds, active) {
         const node = resultRows[rowId][nodeIds[i]];
         active ? node.classList.add("warn") : node.classList.remove("warn")
     }
+}
+
+// show table
+function showTable() {
+    const container = document.getElementById("table");
+    const table = document.createElement("table");
+    results.forEach(item => {
+        const tr = document.createElement("tr")
+        item.forEach(cell => {
+            const td = document.createElement("td");
+            td.innerHTML = cell;
+            tr.append(td)
+        })
+        table.append(tr)
+    })
+    container.append(table)
 }
