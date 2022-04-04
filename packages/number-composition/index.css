@@ -34,6 +34,7 @@ body {
     display: flex;
     width: 600px;
     height: 600px;
+    overflow: auto;
     background-color: var(--background-color2);
 }
 

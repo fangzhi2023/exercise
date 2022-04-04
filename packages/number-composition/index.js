@@ -31,16 +31,18 @@ setTimeout(layout, 1000);
 let timer;
 let step = 0;
 let isPause = false;
+let isStop = false;
 async function start() {
     document.getElementById("start").style.display = "none"
     document.getElementById("pause").style.display = "initial"
     isPause = false;
+    isStop = false;
     const nextStep = createProcess();
     let delay = 200;
     function process() {
         clearTimeout(timer)
         timer = setTimeout(async () => {
-            if (!isPause) {
+            if (!isPause && !isStop) {
                 delay = 200;
                 await nextStep();
             } else {
@@ -69,20 +71,23 @@ function createProcess() {
     const lines = getLines();
     return async () => {
         const line = lines[step++];
-        if (line.tip) {
+        if (!line) {
+            await showTip("选取完毕");
+        } else if (line.tip) {
             await showTip(line.tip);
         } else {
             await checkGroup(line);
         }
+        isStop = true;
     }
 }
 
-function showTip(tip) {
+function showTip(tip, flag = true) {
     return new Promise(resolve => {
         document.getElementById("tip").innerHTML = tip;
         document.getElementById("tip").style.display = 'initial';
         setTimeout(() => {
-            document.getElementById("tip").style.display = 'none';
+            if(flag) document.getElementById("tip").style.display = 'none';
             resolve();
         }, 3000)
     });
